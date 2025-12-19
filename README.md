@@ -26,16 +26,96 @@ The initial day focused on exploratory data analysis and defining the analytical
 
 ### Analysis Goals
 
-1. **Goal A:** Develop a Crime Risk Index — a weighted index that combines crime rates (crime count / population) to rank districts.
-2. **Goal B:** Identify correlations between demographics and crime — check whether specific age groups are associated with certain crime types.
-3. **Goal C:** Analyze crime specialization and temporal trends — investigate unique crime patterns in districts and changes over time.
+1. **Goal A:** Evaluate whether the new design increases completion rates.
+2. **Goal B:** Assess changes in client efficiency and engagement.
+3. **Goal C:** Identify which client benefit most from the redesign.
 
 ### Testable Hypotheses
 
 | ID     | Category                  | Hypothesis Statement                                                                                                                |
 | :----- | :------------------------ | :---------------------------------------------------------------------------------------------------------------------------------- |
-| **H1** | General Crime Rate        | Districts with higher population density will have a higher absolute number of non-violent crimes.                                  |
-| **H2** | General Crime Rate        | The **Regierungsviertel** will have an above-average rate of **Threat** and **Damage** (per capita).                                |
-| **H3** | Demographics (Age)        | Locations with a higher proportion of residents aged **65 and older** will show a higher rate of **Burglary** per capita.           |
-| **H4** | Demographics (Age)        | Locations with a higher proportion of the **18-27** age group will correlate with a higher rate of **Drugs** offenses (per capita). |
-| **H5** | Specific Crime (Temporal) | The rate of **Car theft** has declined over the years covered in the dataset.                                                       ||
+| **H1** | Reduce time to Complete   | Clients using the new design complete the process faster than clients using the original design.                                    |
+| **H2** | Less error/drop off       | Clients in the test group are less likely to abandon the process during the initial steps compared to the control group.            |
+
+
+---
+
+## Day 2: Data Cleaning and Preprocessing
+
+Day 2 focused on preparing the raw Vanguard datasets for analysis and ensuring consistency across demographic and web interaction data.
+
+### Key Cleaning Steps (Python/Pandas)
+
+1. **Column Name Standardization**: Renamed columns for consistency (lowercase, underscores) across demographic and web datasets.
+2. **Data Type Validation**: Ensured correct data types for age, tenure, timestamps, and categorical variables.
+3. **Handling Missing Values**: Identified and assessed missing values in demographic attributes and web events.
+4. **Initial EDA**: Conducted preliminary analysis to examine distributions, completion rates, session counts, and potential anomalies.
+ 
+ 
+
+---
+
+## Day 3: Hypothesis Testing – Completion & Balance Checks
+
+Day 3 focused on validating whether the new design led to a meaningful and reliable improvement in completion rates.
+
+
+
+### 1. `Completion Rate – Statistical Significance`
+- `Hypothesis` → The new design increases completion rates compared to the old design.
+- `Method` → Chi-square test (appropriate for binary completion outcomes).
+- `Result` → Statistically significant difference Chi-square Statistic: 139.93, P-value: 0.00000.
+- `Conclusion` → The new design significantly improves completion rates.
+  
+---
+
+### 2. `Practical Impact – Cost-Effectiveness Threshold`
+- `Threshold` → Minimum required improvement set at 5%.
+- `Observed Uplift` → ~8.7%.
+- `Conclusion` → The improvement exceeds the practical threshold, indicating a meaningful effect size.
+
+---
+
+### 3. `Group Balance Check – Client Tenure`
+- `Test group tenure` → 11.98 years
+- `Control group tenure` → 12.09 years
+- `Finding` → Slight statistical difference but negligible in practice.
+- `Coclusion` → Groups are sufficiently balanced; results are not biased by tenure.
+
+
+---
+
+### 🔗 Key Takeaway
+
+- The new design delivers a statistically significant and practically meaningful increase in completion rates, with no material group imbalance.
+
+
+
+---
+
+## Day 4: Design Effectiveness & Experiment Validation
+
+Day 4 focused on confirming that the experiment results were reliable and not driven by demographic bias or poor experimental design.
+
+### Demographic Balance Checks
+
+- **Gender:** No significant difference in engagement between genders (p = 0.305). The new design performs equally well for men and women.
+- **Age:** Average age was nearly identical between groups (47.5 vs 47.2 years). While statistically significant due to large sample size, the difference is practically negligible.
+
+### Experiment Quality Assessment
+
+- **Randomisiation:** Test and Control groups were largely balanced, with only minor demographic differences that do not affect conclusions.
+- **Assesment:** Long enough to capture typical user behavior and reduce short-term or novelty effects.
+
+### Duration Assessment
+
+- **Timeframe:** March 15, 2017 – June 20, 2017
+- **Conclusion:** Drug offenses are more prevalent in central districts with higher young population density.
+
+### Key Takeaway
+
+- The experiment was well-designed, sufficiently long, and free from meaningful demographic bias, supporting confidence in the results.
+
+
+---
+|
